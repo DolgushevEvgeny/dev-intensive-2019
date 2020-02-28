@@ -15,7 +15,10 @@ object Utils {
     }
 
     fun toInitials(firstName: String?, lastName: String?): String? {
-        TODO()
-
+        val name = firstName.orEmpty().trim().getOrNull(0)?.toUpperCase()
+        val surname = lastName.orEmpty().trim().getOrNull(0)?.toUpperCase()
+        val firstInit = name?.toString() ?: ""
+        val secondInit = surname?.toString() ?: ""
+        return "$firstInit$secondInit".ifEmpty { null }
     }
 }
